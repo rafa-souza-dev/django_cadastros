@@ -1,6 +1,15 @@
 from django.shortcuts import render
-from django.shortcuts import HttpResponse
+
+from .models import Pessoa
 
 
 def home(request):
-    return HttpResponse('Olá mundo!')
+    pessoas = Pessoa.objects.all()
+
+    return render(request, 'home.html', {'pessoas':pessoas})
+
+
+def lista(request):
+    pessoas = Pessoa.objects.all()
+
+    return render(request, 'lista.html', {'pessoas':pessoas})
