@@ -16,7 +16,7 @@
 
 <div class="menu-horizontal">
     <div class="ui three item attached inverted menu">
-        <a href="{% url 'home' %}" class="item"><i class="fab fa-python"></i>
+        <a href="{% url 'HomeCreate' %}" class="item"><i class="fab fa-python"></i>
             <p>Django Cadastros</p></a>
     </div>
 </div>
@@ -30,14 +30,22 @@
                 <a href="{% url 'lista' %}" class="item">
                     Lista de Pessoas
                 </a>
-                <a href="{% url 'home' %}" class="item">
+                <a href="{% url 'HomeCreate' %}" class="item">
                     Cadastrar
                 </a>
             </div>
         </div>
 
         <div class="twelve wide column">
-            <h1>oi</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+
+                <button type="submit">Editar</button>
+
+            </form>
         </div>
     </div>
 

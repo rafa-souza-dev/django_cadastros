@@ -16,7 +16,8 @@
 
 <div class="menu-horizontal">
     <div class="ui three item attached inverted menu">
-        <i class="fab fa-python"></i><div class="titulo"><h3>Django Cadastros</h3></div>
+        <a href="{% url 'HomeCreate' %}" class="item"><i class="fab fa-python"></i>
+            <p>Django Cadastros</p></a>
     </div>
 </div>
 
@@ -39,49 +40,21 @@
 
             <h1>Cadastro</h1>
 
-            <div class="ui large stackable form">
-                <div class="two fields">
-                    <div class="field">
-                        <label>Nome</label>
-                        <input placeholder="Nome" type="text">
-                    </div>
-                    <div class="field">
-                        <label>Sobrenome</label>
-                        <input placeholder="Sobrenome" type="text">
-                    </div>
-                </div>
-                <div class="two fields">
-                    <div class="field">
-                        <label>E-mail</label>
-                        <input placeholder="rafael@contato.com" type="text">
-                    </div>
-                    <div class="field">
-                        <label>Data de Nascimento</label>
-                        <input placeholder="example: 2002-06-22" type="text">
-                    </div>
-                </div>
-                <div class="two fields">
-                    <div class="field">
-                        <label>Idade</label>
-                        <input placeholder="18" type="text">
-                    </div>
-                    <div class="field">
-                        <label>Apelido</label>
-                        <input placeholder="Apelido" type="text">
-                    </div>
-                </div>
-                <div class="two fields">
-                    <div class="field">
-                        <label>Observação</label>
-                        <textarea rows="2"></textarea>
-                    </div>
-                </div>
-                <div class="ui submit button">Cadastrar</div>
-            </div>
+            <p>Preencha todos os campos obrigatórios</p>
+            <hr>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+
+                <button type="submit">Cadastrar</button>
+
+            </form>
 
         </div>
     </div>
-
 
 </body>
 </html>
