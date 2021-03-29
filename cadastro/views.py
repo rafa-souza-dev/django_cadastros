@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 
 from .models import Pessoa
 
 
-def home(request):
-    pessoas = Pessoa.objects.all()
-
-    return render(request, 'home.html', {'pessoas': pessoas})
+class HomeCreate(CreateView):
+    model = Pessoa
+    fields = ['nome', 'sobrenome', 'idade', 'data_nascimento', 'email', 'apelido', 'observacao']
+    template_name = 'home.html'
+    success_url = reverse_lazy('lista')
 
 
 def lista(request):

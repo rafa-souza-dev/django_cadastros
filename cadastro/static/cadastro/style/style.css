@@ -6,3 +6,8 @@
 .menu-horizontal p{
     font-size: 1.5rem;
 }
+
+.menu-horizontal titulo{
+    z-index: 1000;
+    color: white;
+}
