@@ -16,7 +16,7 @@
 
 <div class="menu-horizontal">
     <div class="ui three item attached inverted menu">
-        <a class="item"><i class="fab fa-python"></i>
+        <a href="{% url 'home' %}" class="item"><i class="fab fa-python"></i>
             <p>Django Cadastros</p></a>
     </div>
 </div>
@@ -27,10 +27,10 @@
     <div class="ui stackable grid">
         <div class="four wide column">
             <div class="ui vertical fluid menu">
-                <a class="item">
+                <a href="{% url 'lista' %}" class="item">
                     Lista de Pessoas
                 </a>
-                <a class="item">
+                <a href="{% url 'home' %}" class="item">
                     Cadastrar
                 </a>
             </div>

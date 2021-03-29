@@ -16,7 +16,7 @@
 
 <div class="menu-horizontal">
     <div class="ui three item attached inverted menu">
-        <a class="item"><i class="fab fa-python"></i>
+        <a href="{% url 'home' %}" class="item"><i class="fab fa-python"></i>
             <p>Django Cadastros</p></a>
     </div>
 </div>
@@ -27,10 +27,10 @@
     <div class="ui stackable grid">
         <div class="four wide column">
             <div class="ui vertical fluid menu">
-                <a class="item">
+                <a href="{% url 'lista' %}" class="item">
                     Lista de Pessoas
                 </a>
-                <a class="item">
+                <a href="{% url 'home' %}" class="item">
                     Cadastrar
                 </a>
             </div>
@@ -38,7 +38,7 @@
 
         <div class="twelve wide column">
 
-            <div class="ui two column stackable grid">
+            <div class="ui one column stackable grid">
                 {% for pessoa in pessoas %}
                 <div class="column">
                     <div class="ui fluid card">
@@ -57,6 +57,13 @@
                                         <h4>Sobrenome: {{ pessoa.sobrenome }}</h4>
                                     </div>
                                 </div>
+                                {% if pessoa.apelido %}
+                                <div class="event">
+                                    <div class="content">
+                                        <h4>Apelido: {{ pessoa.apelido }}</h4>
+                                    </div>
+                                </div>
+                                {% endif %}
                                 <div class="event">
                                     <div class="content">
                                         <h4>Idade: {{ pessoa.idade }} anos</h4>
@@ -72,10 +79,19 @@
                                         <h4>Nasceu em: {{ pessoa.data_nascimento }}</h4>
                                     </div>
                                 </div>
+                                {% if pessoa.observacao %}
+                                <div class="event">
+                                    <div class="content">
+                                        <h4>Observação: {{ pessoa.observacao }}</h4>
+                                    </div>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="extra content">
-                            <button class="ui button">Editar</button>
+                            <a href="{% url 'pessoa' pessoa.id %}">
+                                <button class="ui button">Editar</button>
+                            </a>
                         </div>
                     </div>
 
