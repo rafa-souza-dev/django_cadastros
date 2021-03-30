@@ -1,107 +1,66 @@
+{% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-<!DOCTYPE HTML>
+{% block conteudo %}
 
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Django Cadastros</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'cadastro/style/style.css' %}">
-</head>
-<body>
-
-<div class="menu-horizontal">
-    <div class="ui three item attached inverted menu">
-        <a href="{% url 'HomeCreate' %}" class="item"><i class="fab fa-python"></i>
-            <p>Django Cadastros</p></a>
-    </div>
-</div>
-
-<div class="ui hidden divider"></div>
-
-<div class="ui container">
-    <div class="ui stackable grid">
-        <div class="four wide column">
-            <div class="ui vertical fluid menu">
-                <a href="{% url 'lista' %}" class="item">
-                    Lista de Pessoas
-                </a>
-                <a href="{% url 'HomeCreate' %}" class="item">
-                    Cadastrar
-                </a>
+<div class="ui one column stackable grid">
+    {% for pessoa in pessoas %}
+    <div class="column">
+        <div class="ui fluid card">
+            <div class="content">
+                <div class="header">{{ pessoa.nome }}</div>
             </div>
-        </div>
-
-        <div class="twelve wide column">
-
-            <div class="ui one column stackable grid">
-                {% for pessoa in pessoas %}
-                <div class="column">
-                    <div class="ui fluid card">
+            <div class="content">
+                <div class="ui small feed">
+                    <div class="event">
                         <div class="content">
-                            <div class="header">{{ pessoa.nome }}</div>
-                        </div>
-                        <div class="content">
-                            <div class="ui small feed">
-                                <div class="event">
-                                    <div class="content">
-                                        <h4>Nome: {{ pessoa.nome }}</h4>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="content">
-                                        <h4>Sobrenome: {{ pessoa.sobrenome }}</h4>
-                                    </div>
-                                </div>
-                                {% if pessoa.apelido %}
-                                <div class="event">
-                                    <div class="content">
-                                        <h4>Apelido: {{ pessoa.apelido }}</h4>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                <div class="event">
-                                    <div class="content">
-                                        <h4>Idade: {{ pessoa.idade }} anos</h4>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="content">
-                                        <h4>E-mail: {{ pessoa.email }}</h4>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="content">
-                                        <h4>Nasceu em: {{ pessoa.data_nascimento }}</h4>
-                                    </div>
-                                </div>
-                                {% if pessoa.observacao %}
-                                <div class="event">
-                                    <div class="content">
-                                        <h4>Observação: {{ pessoa.observacao }}</h4>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="extra content">
-                            <a href="{% url 'pessoa' pessoa.id %}">
-                                <button class="ui button">Editar</button>
-                            </a>
+                            <h4>Nome: {{ pessoa.nome }}</h4>
                         </div>
                     </div>
-
+                    <div class="event">
+                        <div class="content">
+                            <h4>Sobrenome: {{ pessoa.sobrenome }}</h4>
+                        </div>
+                    </div>
+                    {% if pessoa.apelido %}
+                    <div class="event">
+                        <div class="content">
+                            <h4>Apelido: {{ pessoa.apelido }}</h4>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="event">
+                        <div class="content">
+                            <h4>Idade: {{ pessoa.idade }} anos</h4>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="content">
+                            <h4>E-mail: {{ pessoa.email }}</h4>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="content">
+                            <h4>Nasceu em: {{ pessoa.data_nascimento }}</h4>
+                        </div>
+                    </div>
+                    {% if pessoa.observacao %}
+                    <div class="event">
+                        <div class="content">
+                            <h4>Observação: {{ pessoa.observacao }}</h4>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
-                {% endfor %}
             </div>
-
+            <div class="extra content">
+                <a href="{% url 'pessoa' pessoa.id %}">
+                    <button class="ui button">Editar</button>
+                </a>
+            </div>
         </div>
     </div>
-
-
-</body>
-</html>
+    {% endfor %}
+</div>
+{% endblock %}

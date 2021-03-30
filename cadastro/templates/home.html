@@ -1,60 +1,21 @@
+{% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-<!DOCTYPE HTML>
-
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Django Cadastros</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'cadastro/style/style.css' %}">
-</head>
-<body>
-
-<div class="menu-horizontal">
-    <div class="ui three item attached inverted menu">
-        <a href="{% url 'HomeCreate' %}" class="item"><i class="fab fa-python"></i>
-            <p>Django Cadastros</p></a>
-    </div>
-</div>
-
-<div class="ui hidden divider"></div>
-
-<div class="ui container">
-    <div class="ui stackable grid">
-        <div class="four wide column">
-            <div class="ui vertical fluid menu">
-                <a href="{% url 'lista' %}" class="item">
-                    Lista de Pessoas
-                </a>
-                <a class="item">
-                    Cadastrar
-                </a>
-            </div>
-        </div>
-
-        <div class="twelve wide column">
-
-            <h1>Cadastro</h1>
-
-            <p>Preencha todos os campos obrigatórios</p>
-            <hr>
-
-            <form action="" method="POST">
-                {% csrf_token %}
-
-                {{ form.as_p }}
+{% block conteudo %}
 
 
-                <button type="submit">Cadastrar</button>
+<h1>Cadastro</h1>
 
-            </form>
+<p>Preencha todos os campos obrigatórios</p>
+<hr>
 
-        </div>
-    </div>
+<form action="" method="POST">
+    {% csrf_token %}
 
-</body>
-</html>
+    {{ form|crispy }}
+
+
+    <button type="submit">Cadastrar</button>
+</form>
+{% endblock %}
