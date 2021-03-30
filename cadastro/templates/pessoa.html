@@ -5,7 +5,7 @@
 {% block conteudo %}
 
 
-<h1>Editando</h1>
+<h1>Editando: {{pessoa.nome}} {{pessoa.sobrenome}}</h1>
 
 <form action="" method="POST">
     {% csrf_token %}
@@ -13,7 +13,9 @@
     {{ form|crispy }}
 
 
-    <button type="submit">Editar</button>
+    <button class="ui primary button">
+        Editar
+    </button>
 
 </form>
 {% endblock %}
