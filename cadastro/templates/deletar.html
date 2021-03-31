@@ -2,11 +2,9 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 {% block conteudo %}
 
-
-<h1>Editando: {{pessoa.nome}} {{pessoa.sobrenome}}</h1>
+<h1>Deseja excluir {{pessoa.nome}} {{pessoa.sobrenome}}?</h1>
 
 <form action="" method="POST">
     {% csrf_token %}
@@ -14,10 +12,11 @@
     {{ form|crispy }}
 
 
-    <button class="ui primary button">
-        Editar
+    <button class="ui negative button">
+        Excluir
     </button>
 
 
 </form>
+
 {% endblock %}

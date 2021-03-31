@@ -4,7 +4,24 @@
 
 {% block conteudo %}
 
+<div class="ui hidden divider"></div>
+
 <div class="ui one column stackable grid">
+    <div class="ui right aligned category search">
+        <form class="ui form" action="{% url 'resultado' %}" method="get">
+            <div class="inline fields">
+                <input id="resultado" name="resultado" class="prompt" type="text"
+                       placeholder="Pesquisar nome...">
+                <button class="ui icon button">
+                    <i class="search link icon"></i>
+                </button>
+            </div>
+            <p>Digite o primeiro nome de alguém</p>
+        </form>
+        {% if not pessoas %}
+            <h3>Não achei ninguém...</h3>
+        {% endif %}
+    </div>
     {% for pessoa in pessoas %}
     <div class="column">
         <div class="ui fluid card">
@@ -56,7 +73,7 @@
             </div>
             <div class="extra content">
                 <a href="{% url 'pessoa' pessoa.id %}">
-                    <button class="ui button">Editar</button>
+                    <button class="ui primary button">Editar</button>
                 </a>
             </div>
         </div>
