@@ -8,15 +8,23 @@
 <h1>Cadastro</h1>
 
 <p>Preencha todos os campos obrigatórios</p>
+
 <hr>
 
-<form action="" method="POST">
-    {% csrf_token %}
+<div class="ui fluid card">
+    <div class="content">
+        <div class="description">
+            <form action="" method="POST">
+                {% csrf_token %}
 
-    {{ form|crispy }}
+                {{ form|crispy }}
 
-    <button class="ui primary button">
-        Cadastrar
-    </button>
-</form>
+                <button class="ui primary button">
+                    Cadastrar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

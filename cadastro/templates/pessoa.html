@@ -8,16 +8,20 @@
 
 <h1>Editando: {{pessoa.nome}} {{pessoa.sobrenome}}</h1>
 
-<form action="" method="POST">
-    {% csrf_token %}
+<div class="ui fluid card">
+    <div class="content">
+        <div class="description">
+            <form action="" method="POST">
+                {% csrf_token %}
 
-    {{ form|crispy }}
+                {{ form|crispy }}
 
+                <button class="ui yellow button">
+                    Editar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 
-    <button class="ui yellow button">
-        Editar
-    </button>
-
-
-</form>
 {% endblock %}
