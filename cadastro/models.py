@@ -3,8 +3,6 @@ from cadastro import requisicao
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-from datetime import date
-
 resposta = requisicao.requisicao('https://gerador-nomes.herokuapp.com/nome/aleatorio')
 nome = requisicao.parsing(resposta)
 
@@ -25,7 +23,7 @@ class Pessoa(models.Model):
     data_nascimento = models.DateField(verbose_name='Data de Nascimento', help_text='exemplo: 22/06/2002')
     email = models.EmailField(max_length=40, verbose_name='E-mail', help_text='exemplo@contato.com')
     apelido = models.CharField(max_length=20, null=True, blank=True)
-    observacao = models.CharField(max_length=60, null=True, blank=True, verbose_name='Observação')
+    observacao = models.CharField(max_length=36, null=True, blank=True, verbose_name='Observação')
 
 
     def __str__(self):

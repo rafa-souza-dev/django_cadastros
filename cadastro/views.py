@@ -19,6 +19,12 @@ class PessoaUpdate(UpdateView):
     success_url = reverse_lazy('lista')
 
 
+class PessoaDelete(DeleteView):
+    model = Pessoa
+    template_name = 'deletar.html'
+    success_url = reverse_lazy('lista')
+
+
 def lista(request):
     pessoas = Pessoa.objects.all()
 

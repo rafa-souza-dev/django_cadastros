@@ -75,6 +75,10 @@
                 <a href="{% url 'pessoa' pessoa.id %}">
                     <button class="ui primary button">Editar</button>
                 </a>
+                <strong>ou</strong>
+                <a href="{% url 'deletar' pessoa.id %}">
+                    <button class="ui negative button">Excluir</button>
+                </a>
             </div>
         </div>
     </div>

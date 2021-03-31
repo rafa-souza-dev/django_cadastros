@@ -4,6 +4,7 @@ from .views import HomeCreate
 from .views import lista
 from .views import resultado
 from .views import PessoaUpdate
+from .views import PessoaDelete
 
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path('lista/', lista, name='lista'),
     path('reultado/', resultado, name='resultado'),
     path('pessoa/<int:pk>', PessoaUpdate.as_view(), name='pessoa'),
+    path('deletar/<int:pk>', PessoaDelete.as_view(), name='deletar'),
 ]
