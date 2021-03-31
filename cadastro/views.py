@@ -33,7 +33,7 @@ def lista(request):
 
 def resultado(request):
     valor_digitado = request.GET.get('resultado', 'This is a default value')
-    pessoas = Pessoa.objects.filter(nome=valor_digitado)
+    pessoas = Pessoa.objects.filter(nome__icontains=valor_digitado)
     context = {'valor_digitado': valor_digitado,
                'pessoas': pessoas,
                }
