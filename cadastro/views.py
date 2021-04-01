@@ -9,7 +9,7 @@ class HomeCreate(CreateView):
     model = Pessoa
     fields = ['nome', 'sobrenome', 'idade', 'data_nascimento', 'email', 'apelido', 'observacao']
     template_name = 'home.html'
-    success_url = reverse_lazy('lista')
+    success_url = reverse_lazy('tabela')
 
 
 class PessoaUpdate(UpdateView):
@@ -38,3 +38,9 @@ def resultado(request):
                'pessoas': pessoas,
                }
     return render(request, 'lista.html', context)
+
+
+def tabela(request):
+    pessoas = Pessoa.objects.all()
+
+    return render(request, 'tabela.html', {'pessoas': pessoas})

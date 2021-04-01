@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block conteudo %}
+
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>E-mail</th>
+    </tr>
+    </thead>
+    {% for pessoa in pessoas %}
+    <tbody>
+    <tr class="active">
+        <td>{{pessoa.nome}} {{pessoa.sobrenome}}</td>
+        <td>{{pessoa.idade}}</td>
+        <td>{{pessoa.email}}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}
