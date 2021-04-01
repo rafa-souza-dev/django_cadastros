@@ -7,6 +7,8 @@ O framework que utilizei para construção dos templates e organização foi o F
 
 Decidi por não criar um arquivo ".gitignore", para que se tenha uma vizualização completa do projeto.
 
+Para o acesso da aba admin/, o superuser criado tem senha=admin e login=admin
+
 # Templates:
 
 Dentro do APP cadastro, entrando na pasta de templates, encontra-se 6 templates(HTML) diferentes. Sendo eles base, home, lista, pessoa, tabela e deletar.
